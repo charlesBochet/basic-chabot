@@ -27,6 +27,7 @@ router.post('/', function(req, res) {
 
 // Adds support for GET requests to our webhook
 router.get('/', function(req, res) {
+    var challenge = req.query['hub.challenge'];
     if (chatService.authenticate(req)) {
         // Responds with the challenge token from the request
         console.log('WEBHOOK_VERIFIED');
